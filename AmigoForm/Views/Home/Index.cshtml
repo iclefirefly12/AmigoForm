@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Amigo Bug Report";
+}
+
+<section id="formContain">
+    <h2 id="formHeader">Tell us about the bug you've been experiencing:</h2>
+    <form id="bugForm">
+        <input id="name" name="customerName" type="text" minlength="3" placeholder="Your Name" required>
+        <input id="email" name="customerEmail" type="email" placeholder="Your Email Address" required>
+        <textarea id="bugDesc" name="descIn" placeholder="Description of the Bug" required></textarea>
+        <label id="bugLabel">
+            <select id="bugType" name="bugSel" required>
+                <option value="" disabled="disabled" selected="selected">Select Bug Category:</option>
+                <option value="general">General</option>
+                <option value="loanApp">Applying for a loan</option>
+                <option value="account">Accessing my account</option>
+                <option value="payment">Making a Payment</option>
+            </select>
+        </label>
+        <fieldset id="cusType">
+            <p>Click the box that applies:</p>
+            <input id="new" type="radio" name="cusType" value="New" required>
+            <label id="newLab" for="new">New Customer</label>
+            <br />
+            <input id="exist" type="radio" name="cusType" value="Existing">
+            <label for="exist">Existing Customer</label>
+        </fieldset>
+        <fieldset id="submitContain">
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+</section>
