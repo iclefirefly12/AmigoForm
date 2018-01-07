@@ -22,6 +22,7 @@ namespace AmigoForm.Models
         [Required(ErrorMessage = "A description of the bug is required")]
         public string BugDesc { get; set; }
     
+        [Required(ErrorMessage = "A bug category is required")]
         public string BugType { get; set; }
     }
 }
