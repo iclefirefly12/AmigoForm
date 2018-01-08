@@ -5,7 +5,13 @@
 header {
     width: 100%;
     text-align: center;
+    color: #074864;
 }
+
+header img{
+    width: 20%;
+}
+
 
 .field-validation-error{
     color:red;
@@ -23,6 +29,9 @@ header {
 h1 {
     font-size: 3em;
     line-height: 1.5;
+    display: inline-block;
+    margin-top:0;
+    margin-bottom:0;
 }
 
 #container, select, input[type='text'], input[type='email'], input[type='submit'], textarea, h2, p {
@@ -40,6 +49,7 @@ input[type='text'], input[type='email'], select, textarea, fieldset {
 
 #formHeader {
     text-align: center;
+    color: #074864;
 }
 
 #formContain {
