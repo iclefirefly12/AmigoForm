@@ -66,8 +66,7 @@ namespace AmigoForm.Controllers
             {
                 //Submit to Api
                 ModelState.Clear();
-                model = new BugReportModel();
-                return View(model);
+                return RedirectToAction("Index");
             }
 
             return View(model);
