@@ -43,7 +43,7 @@ namespace AmigoForm.Controllers
                 Regex re = new Regex(emailRegex);
                 if (!re.IsMatch(model.Email))
                 {
-                    ModelState.AddModelError("Email", "Email is not valid");
+                    ModelState.AddModelError("Email", "Please enter a valid Email");
                 }
             }
 
@@ -65,7 +65,11 @@ namespace AmigoForm.Controllers
             if (ModelState.IsValid)
             {
                 //Submit to Api
+                ModelState.Clear();
+                model = new BugReportModel();
+                return View(model);
             }
+
             return View(model);
         }
     }
