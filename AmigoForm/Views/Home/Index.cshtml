@@ -1,10 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Amigo Bug Report";
 }
-
+@model BugReportModel
 <section id="formContain">
     <h2 id="formHeader">Tell us about the bug you've been experiencing:</h2>
-    <form id="bugForm">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true);
+        @Html.TextBoxFor(BugReportModel => BugReportModel.CustomerName)
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <span class="field-validation-error">@ViewData.ModelState["Name"].Errors[0].ErrorMessage</span>
+
+        }
+        <fieldset id="submitContain">
+            <input type="submit" value="Submit">
+        </fieldset>
+
+    }
+    <!---<form id="bugForm">
         <input id="name" name="customerName" type="text" minlength="3" placeholder="Your Name" required>
         <input id="email" name="customerEmail" type="email" placeholder="Your Email Address" required>
         <textarea id="bugDesc" name="descIn" placeholder="Description of the Bug" required></textarea>
@@ -28,5 +42,5 @@
         <fieldset id="submitContain">
             <input type="submit" value="Submit">
         </fieldset>
-    </form>
+    </form>-->
 </section>

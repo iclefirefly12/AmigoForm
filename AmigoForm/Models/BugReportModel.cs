@@ -12,7 +12,7 @@ namespace AmigoForm.Models
         public int ID { get; set; }
 
         [StringLength(60,MinimumLength = 3)]
-        [Required(ErrorMessage ="Your name is required")]
+        [Display(Prompt ="Your Name")]
         public string CustomerName { get; set; }
 
         [Required(ErrorMessage ="Your email is required")]
