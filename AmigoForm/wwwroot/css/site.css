@@ -7,6 +7,15 @@ header {
     text-align: center;
 }
 
+.field-validation-error{
+    color:red;
+}
+
+.Error {
+    border: solid 0.5px red!important;
+    outline-color: red;
+}
+
 #container {
     width: 100%;
 }

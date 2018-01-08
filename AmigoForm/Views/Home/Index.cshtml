@@ -1,5 +1,32 @@
 ﻿@{
     ViewData["Title"] = "Amigo Bug Report";
+    List<SelectListItem> bugTypes = new List<SelectListItem>();
+
+    bugTypes.Add(new SelectListItem
+    {
+        Text = "General",
+        Value= "general"
+
+    });
+    bugTypes.Add(new SelectListItem
+    {
+        Text = "Applying for a loan",
+        Value = "loanApp"
+
+    });
+    bugTypes.Add(new SelectListItem
+    {
+        Text = "Accessing my account",
+        Value = "account"
+
+    });
+
+    bugTypes.Add(new SelectListItem
+    {
+        Text = "Making a payment",
+        Value = "payment"
+
+    });
 }
 @model BugReportModel
 <section id="formContain">
@@ -7,21 +34,54 @@
     @using (Html.BeginForm())
     {
         @Html.ValidationSummary(true);
-        @Html.TextBoxFor(BugReportModel => BugReportModel.CustomerName)
-        @if (!ViewData.ModelState.IsValid)
+        @if (ViewData.ModelState["Name"] != null && ViewData.ModelState["Name"].Errors.Count > 0)
         {
+            @Html.TextBoxFor(BugReportModel => BugReportModel.CustomerName, new { @class = "Error" })
             <span class="field-validation-error">@ViewData.ModelState["Name"].Errors[0].ErrorMessage</span>
-
         }
+        else
+        {
+            @Html.TextBoxFor(BugReportModel => BugReportModel.CustomerName)
+        }
+
+
+        @if (ViewData.ModelState["Email"] != null && ViewData.ModelState["Email"].Errors.Count > 0)
+        {
+            @Html.TextBoxFor(BugReportModel => BugReportModel.Email, new { @class = "Error" })
+            <span class="field-validation-error">@ViewData.ModelState["Email"].Errors[0].ErrorMessage</span>
+        }
+        else
+        {
+            @Html.TextBoxFor(BugReportModel => BugReportModel.Email)
+        }
+
+        @if (ViewData.ModelState["Description"] != null && ViewData.ModelState["Description"].Errors.Count > 0)
+        {
+            @Html.TextAreaFor(BugReportModel => BugReportModel.BugDesc, new { @class = "Error" })
+            <span class="field-validation-error">@ViewData.ModelState["Description"].Errors[0].ErrorMessage</span>
+        }
+        else
+        {
+            @Html.TextAreaFor(BugReportModel => BugReportModel.BugDesc)
+        }
+        <label id="bugLabel">
+                @if (ViewData.ModelState["BugType"] != null && ViewData.ModelState["BugType"].Errors.Count > 0)
+        {
+            @Html.DropDownListFor(BugReportModel => BugReportModel.BugType, bugTypes, "Select Bug Category:", new { @class = "Error"})
+                 <span class="field-validation-error">@ViewData.ModelState["BugType"].Errors[0].ErrorMessage</span>
+        }
+        else
+        {
+            @Html.DropDownListFor(BugReportModel => BugReportModel.BugType, bugTypes, "Select Bug Category:")
+        }
+        </label>
+
         <fieldset id="submitContain">
             <input type="submit" value="Submit">
         </fieldset>
 
     }
     <!---<form id="bugForm">
-        <input id="name" name="customerName" type="text" minlength="3" placeholder="Your Name" required>
-        <input id="email" name="customerEmail" type="email" placeholder="Your Email Address" required>
-        <textarea id="bugDesc" name="descIn" placeholder="Description of the Bug" required></textarea>
         <label id="bugLabel">
             <select id="bugType" name="bugSel" required>
                 <option value="" disabled="disabled" selected="selected">Select Bug Category:</option>
@@ -38,9 +98,6 @@
             <br />
             <input id="exist" type="radio" name="cusType" value="Existing">
             <label for="exist">Existing Customer</label>
-        </fieldset>
-        <fieldset id="submitContain">
-            <input type="submit" value="Submit">
         </fieldset>
     </form>-->
 </section>

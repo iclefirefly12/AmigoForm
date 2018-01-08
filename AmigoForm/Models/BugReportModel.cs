@@ -11,18 +11,15 @@ namespace AmigoForm.Models
     {
         public int ID { get; set; }
 
-        [StringLength(60,MinimumLength = 3)]
-        [Display(Prompt ="Your Name")]
+        [Display(Prompt = "Your Name")]
         public string CustomerName { get; set; }
 
-        [Required(ErrorMessage ="Your email is required")]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Display(Prompt = "Your Email")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "A description of the bug is required")]
+        [Display(Prompt = "Description of the Bug")]
         public string BugDesc { get; set; }
-    
-        [Required(ErrorMessage = "A bug category is required")]
+
         public string BugType { get; set; }
     }
 }
