@@ -5,7 +5,7 @@
     bugTypes.Add(new SelectListItem
     {
         Text = "General",
-        Value= "general"
+        Value = "general"
 
     });
     bugTypes.Add(new SelectListItem
@@ -64,40 +64,45 @@
         {
             @Html.TextAreaFor(BugReportModel => BugReportModel.BugDesc)
         }
-        <label id="bugLabel">
-                @if (ViewData.ModelState["BugType"] != null && ViewData.ModelState["BugType"].Errors.Count > 0)
+
+        @if (ViewData.ModelState["BugType"] != null && ViewData.ModelState["BugType"].Errors.Count > 0)
         {
-            @Html.DropDownListFor(BugReportModel => BugReportModel.BugType, bugTypes, "Select Bug Category:", new { @class = "Error"})
-                 <span class="field-validation-error">@ViewData.ModelState["BugType"].Errors[0].ErrorMessage</span>
+            @Html.DropDownListFor(BugReportModel => BugReportModel.BugType, bugTypes, "Select Bug Category:", new { @class = "Error" })
+            <span class="field-validation-error">@ViewData.ModelState["BugType"].Errors[0].ErrorMessage</span>
         }
         else
         {
             @Html.DropDownListFor(BugReportModel => BugReportModel.BugType, bugTypes, "Select Bug Category:")
         }
-        </label>
+        <fieldset id="cusType">
+            <p>Click the customer type that applies:</p>
+            @if (ViewData.ModelState["CustomerType"] != null && ViewData.ModelState["CustomerType"].Errors.Count > 0)
+            {
+                <span class="field-validation-error">@ViewData.ModelState["CustomerType"].Errors[0].ErrorMessage</span>
+                <br />
+                <label class="Error">
+                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "New")New Customer
+                </label>
+                <br />
+                <label>
+                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "Old")Old Customer
+                </label>
 
+            }
+            else
+            {
+                <label>
+                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "New")New Customer
+                </label>
+                <br />
+                <label>
+                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "Old")Old Customer
+                </label>
+            }
+        </fieldset>
         <fieldset id="submitContain">
             <input type="submit" value="Submit">
         </fieldset>
 
     }
-    <!---<form id="bugForm">
-        <label id="bugLabel">
-            <select id="bugType" name="bugSel" required>
-                <option value="" disabled="disabled" selected="selected">Select Bug Category:</option>
-                <option value="general">General</option>
-                <option value="loanApp">Applying for a loan</option>
-                <option value="account">Accessing my account</option>
-                <option value="payment">Making a Payment</option>
-            </select>
-        </label>
-        <fieldset id="cusType">
-            <p>Click the box that applies:</p>
-            <input id="new" type="radio" name="cusType" value="New" required>
-            <label id="newLab" for="new">New Customer</label>
-            <br />
-            <input id="exist" type="radio" name="cusType" value="Existing">
-            <label for="exist">Existing Customer</label>
-        </fieldset>
-    </form>-->
 </section>

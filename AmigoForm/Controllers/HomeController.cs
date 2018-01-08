@@ -54,10 +54,15 @@ namespace AmigoForm.Controllers
 
             if (model.BugType == null || model.BugType.Trim().Length == 0)
             {
-                ModelState.AddModelError("BugType", "Please Select Bug Type");
+                ModelState.AddModelError("BugType", "Bug Type is Required");
             }
 
-                if (ModelState.IsValid)
+            if (model.CustomerType == null || model.CustomerType.Trim().Length == 0)
+            {
+                ModelState.AddModelError("CustomerType", "Customer type is required");
+            }
+
+            if (ModelState.IsValid)
             {
                 //Submit to Api
             }

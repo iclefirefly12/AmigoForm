@@ -21,6 +21,8 @@ namespace AmigoForm.Models
         public string BugDesc { get; set; }
 
         public string BugType { get; set; }
+
+        public string CustomerType { get; set; }
     }
 }
 

@@ -53,35 +53,9 @@ textarea {
     min-height: 50px;
 }
 
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: none;
-    cursor: pointer;
-}
-
-#bugLabel {
-    position: relative
-}
-
-    #bugLabel:after {
-        content: '>';
-        font: 2em "Consolas", monospace;
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-        right: 20px;
-        top: -10px;
-        position: absolute;
-        pointer-events: none;
-    }
-
 p {
     margin: 0;
 }
-
 
 #cusType input{
     transform: scale(1.5);
