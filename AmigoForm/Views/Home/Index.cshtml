@@ -81,22 +81,22 @@
                 <span class="field-validation-error">@ViewData.ModelState["CustomerType"].Errors[0].ErrorMessage</span>
                 <br />
                 <label class="Error">
-                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "New")New Customer
+                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "New", new { @id = "new"})New Customer
                 </label>
                 <br />
                 <label>
-                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "Old")Old Customer
+                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "Old", new { @id = "old" })Old Customer
                 </label>
 
             }
             else
             {
                 <label>
-                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "New")New Customer
+                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "New", new { @id = "new" })New Customer
                 </label>
                 <br />
                 <label>
-                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "Old")Old Customer
+                    @Html.RadioButtonFor(BugReportModel => BugReportModel.CustomerType, "Old", new { @id = "old" })Old Customer
                 </label>
             }
         </fieldset>
