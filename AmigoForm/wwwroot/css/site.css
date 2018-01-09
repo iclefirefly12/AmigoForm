@@ -5,6 +5,21 @@
 header {
     width: 100%;
     text-align: center;
+    color: #074864;
+}
+
+header img{
+    width: 20%;
+}
+
+
+.field-validation-error{
+    color:red;
+}
+
+.Error {
+    border: solid 0.5px red!important;
+    outline-color: red;
 }
 
 #container {
@@ -14,6 +29,9 @@ header {
 h1 {
     font-size: 3em;
     line-height: 1.5;
+    display: inline-block;
+    margin-top:0;
+    margin-bottom:0;
 }
 
 #container, select, input[type='text'], input[type='email'], input[type='submit'], textarea, h2, p {
@@ -31,6 +49,7 @@ input[type='text'], input[type='email'], select, textarea, fieldset {
 
 #formHeader {
     text-align: center;
+    color: #074864;
 }
 
 #formContain {
@@ -43,31 +62,6 @@ textarea {
     overflow: auto;
     min-height: 50px;
 }
-
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: none;
-    cursor: pointer;
-}
-
-#bugLabel {
-    position: relative
-}
-
-    #bugLabel:after {
-        content: '>';
-        font: 2em "Consolas", monospace;
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-        right: 20px;
-        top: -10px;
-        position: absolute;
-        pointer-events: none;
-    }
 
 p {
     margin: 0;
@@ -95,11 +89,20 @@ input[type='submit'] {
         box-shadow: 0 0;
     }
 
+    hr{
+        margin-bottom:0!important;
+        font-size: 1em;
+    }
+
 @media (max-width: 600px) {
 
     h1 {
         font-size: 2em;
         line-height: 1.5;
+    }
+
+    header img {
+        width: 50%;
     }
 
     #formContain {
